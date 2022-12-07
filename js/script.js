@@ -83,7 +83,7 @@ const getData = (event) => {
 	$downloadBtn.classList.add("hide");
 	$loader.classList.remove("hide");
 
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/parse", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/parse", {
 		method: "post",
 		headers: {
 			Accept: "application/json",
@@ -103,7 +103,7 @@ const getData = (event) => {
 		.then((data) => {
 			if (data.message == "Success") {
 				$downloadBtn.href =
-					"https://cute-pear-oyster-kit.cyclic.app/data/" + data.filename;
+					"https://sore-cyan-alligator-wig.cyclic.app/data/" + data.filename;
 				$loader.classList.add("hide");
 				$downloadBtn.classList.remove("hide");
 			}
@@ -125,7 +125,7 @@ const logout = () => {
 const removeUser = (login) => {
 	const token = localStorage.getItem("token");
 
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/auth/remove", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/auth/remove", {
 		method: "delete",
 		headers: {
 			Accept: "application/json",
@@ -145,7 +145,7 @@ const removeUser = (login) => {
 const getUsers = () => {
 	const token = localStorage.getItem("token");
 
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/auth/users", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/auth/users", {
 		method: "get",
 		headers: {
 			Authorization: "Bearer " + token,
@@ -222,7 +222,7 @@ $authBtn.addEventListener("click", (e) => {
 
 	if (!isValidLogin || !isValidPassword) return;
 
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/auth/login", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/auth/login", {
 		method: "post",
 		headers: {
 			Accept: "application/json",
@@ -293,7 +293,7 @@ $createBtn.addEventListener("click", (e) => {
 
 	const token = localStorage.getItem("token");
 
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/auth/registration", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/auth/registration", {
 		method: "post",
 		headers: {
 			Accept: "application/json",
@@ -331,7 +331,7 @@ $openLogs.addEventListener("click", (e) => {
 
 	const token = localStorage.getItem("token");
 
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/auth/logs", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/auth/logs", {
 		method: "get",
 		headers: {
 			Authorization: "Bearer " + token,
@@ -339,7 +339,9 @@ $openLogs.addEventListener("click", (e) => {
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			window.open(`https://cute-pear-oyster-kit.cyclic.app/logs/${data.filename}`);
+			window.open(
+				`https://sore-cyan-alligator-wig.cyclic.app/logs/${data.filename}`
+			);
 		});
 });
 
@@ -389,7 +391,7 @@ const setUser = () => {
 };
 
 const getRoles = (token) => {
-	fetch("https://cute-pear-oyster-kit.cyclic.app/api/auth/roles", {
+	fetch("https://sore-cyan-alligator-wig.cyclic.app/api/auth/roles", {
 		headers: {
 			Authorization: "Bearer " + token,
 		},
