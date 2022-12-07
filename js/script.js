@@ -103,7 +103,7 @@ const getData = (event) => {
 		.then((data) => {
 			if (data.message == "Success") {
 				$downloadBtn.href =
-					"https://sore-cyan-alligator-wig.cyclic.app/data/" + data.filename;
+					"https://sore-cyan-alligator-wig.cyclic.app/tmp/" + data.filename;
 				$loader.classList.add("hide");
 				$downloadBtn.classList.remove("hide");
 			}
