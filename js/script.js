@@ -396,6 +396,7 @@ const getRoles = (token) => {
 	})
 		.then((res) => res.json())
 		.then((data) => {
+			
 			if (data.roles.includes("ADMIN")) {
 				setAdmin();
 			} else if (data.roles.includes("USER")) {
