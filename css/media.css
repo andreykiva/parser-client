@@ -21,7 +21,15 @@
 	}
 
 	.parse-btn {
-		margin-bottom: 140px;
+		margin-bottom: 40px;
+	}
+	
+	.download-btn {
+		margin-top: 120px;
+	}
+	
+	.loader {
+		padding-top: 120px;
 	}
 }
 
