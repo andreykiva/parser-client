@@ -259,6 +259,7 @@ a.header-link {
 	padding: 20px;
 	margin: 0 auto;
 	margin-top: 20px;
+	margin-bottom: 40px;
 	background-color: #544db9;
 	border-radius: 50%;
 	transition: opacity .2s ease-in-out;
@@ -274,6 +275,7 @@ a.header-link {
 	display: flex;
 	justify-content: center;
 	padding-top: 12px;
+	margin-bottom: 40px;
 }
 
 .lds-ring {
