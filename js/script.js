@@ -83,7 +83,7 @@ const getData = (event) => {
 	$downloadBtn.classList.add("hide");
 	$loader.classList.remove("hide");
 
-	fetch("https://parser-im0t.onrender.com/api/parse", {
+	fetch("https://parser-fyw3.onrender.com/api/parse", {
 		method: "post",
 		headers: {
 			Accept: "application/json",
@@ -103,7 +103,7 @@ const getData = (event) => {
 		.then((data) => {
 			if (data.message == "Success") {
 				$downloadBtn.href =
-					"https://parser-im0t.onrender.com/tmp/" + data.filename;
+					"https://parser-fyw3.onrender.com/tmp/" + data.filename;
 				$loader.classList.add("hide");
 				$downloadBtn.classList.remove("hide");
 			}
@@ -125,7 +125,7 @@ const logout = () => {
 const removeUser = (login) => {
 	const token = localStorage.getItem("token");
 
-	fetch("https://parser-im0t.onrender.com/api/auth/remove", {
+	fetch("https://parser-fyw3.onrender.com/api/auth/remove", {
 		method: "delete",
 		headers: {
 			Accept: "application/json",
@@ -145,7 +145,7 @@ const removeUser = (login) => {
 const getUsers = () => {
 	const token = localStorage.getItem("token");
 
-	fetch("https://parser-im0t.onrender.com/api/auth/users", {
+	fetch("https://parser-fyw3.onrender.com/api/auth/users", {
 		method: "get",
 		headers: {
 			Authorization: "Bearer " + token,
@@ -222,7 +222,7 @@ $authBtn.addEventListener("click", (e) => {
 
 	if (!isValidLogin || !isValidPassword) return;
 
-	fetch("https://parser-im0t.onrender.com/api/auth/login", {
+	fetch("https://parser-fyw3.onrender.com/api/auth/login", {
 		method: "post",
 		headers: {
 			Accept: "application/json",
@@ -293,7 +293,7 @@ $createBtn.addEventListener("click", (e) => {
 
 	const token = localStorage.getItem("token");
 
-	fetch("https://parser-im0t.onrender.com/api/auth/registration", {
+	fetch("https://parser-fyw3.onrender.com/api/auth/registration", {
 		method: "post",
 		headers: {
 			Accept: "application/json",
@@ -331,7 +331,7 @@ $openLogs.addEventListener("click", (e) => {
 
 	const token = localStorage.getItem("token");
 
-	fetch("https://parser-im0t.onrender.com/api/auth/logs", {
+	fetch("https://parser-fyw3.onrender.com/api/auth/logs", {
 		method: "get",
 		headers: {
 			Authorization: "Bearer " + token,
@@ -339,7 +339,7 @@ $openLogs.addEventListener("click", (e) => {
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			window.open(`https://parser-im0t.onrender.com/logs/${data.filename}`);
+			window.open(`https://parser-fyw3.onrender.com/logs/${data.filename}`);
 		});
 });
 
@@ -389,14 +389,13 @@ const setUser = () => {
 };
 
 const getRoles = (token) => {
-	fetch("https://parser-im0t.onrender.com/api/auth/roles", {
+	fetch("https://parser-fyw3.onrender.com/api/auth/roles", {
 		headers: {
 			Authorization: "Bearer " + token,
 		},
 	})
 		.then((res) => res.json())
 		.then((data) => {
-			
 			if (data.roles.includes("ADMIN")) {
 				setAdmin();
 			} else if (data.roles.includes("USER")) {
