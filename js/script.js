@@ -142,6 +142,21 @@ const removeUser = (login) => {
 		});
 };
 
+const getUserLogs = (login) => {
+	const token = localStorage.getItem("token");
+
+	fetch("https://parser-fyw3.onrender.com/api/auth/logs/" + login, {
+		method: "get",
+		headers: {
+			Authorization: "Bearer " + token,
+		},
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			window.open(`https://parser-fyw3.onrender.com/logs/${data.filename}`);
+		});
+}
+
 const getUsers = () => {
 	const token = localStorage.getItem("token");
 
@@ -178,6 +193,7 @@ const getUsers = () => {
 					`
 							<div class="users__list-item">
 								<span class="username">${user.login}</span>
+								<button class="user-logs-btn" onclick="getUserLogs('${user.login}')">Логи</button>
 								<button class="remove-user-btn" onclick="removeUser('${user.login}')">Видалити</button>
 							</div>	
 							`
