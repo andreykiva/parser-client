@@ -405,13 +405,13 @@ a.header-link {
 	background-color: rgba(20, 187, 42, 0.836)
 }
 
-.product-by {
+.created-by {
 	position: fixed;
 	right: 30px;
 	bottom: 30px;
 }
 
-.product-by span {
+.created-by span {
 	color: #544db9;
 }
 
