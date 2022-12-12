@@ -483,7 +483,7 @@ a.header-link {
 	outline: none;
 	background: none;
 	font-size: 16px;
-	color: #fff;
+	color: #000;
 }
 
 .user-logs-btn {
@@ -656,6 +656,10 @@ body.dark .edit-user-btn {
 
 body.dark .edit-user-btn:hover {
 	background-color: rgb(28, 175, 77);
+}
+
+body.dark .item__password .new-password__input {
+	color: #fff;
 }
 
 .hide {
