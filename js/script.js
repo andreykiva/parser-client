@@ -102,8 +102,7 @@ const getData = (event) => {
 		.then((res) => res.json())
 		.then((data) => {
 			if (data.message == "Success") {
-				$downloadBtn.href =
-					"https://parser-fyw3.onrender.com/tmp/" + data.filename;
+				$downloadBtn.href = "https://parser-fyw3.onrender.com/tmp/" + data.filename;
 				$loader.classList.add("hide");
 				$downloadBtn.classList.remove("hide");
 			}
@@ -142,6 +141,36 @@ const removeUser = (login) => {
 		});
 };
 
+const openUserPassword = (btn) => {
+	btn.parentElement.parentElement.classList.toggle("showPass");
+}
+
+const editUserPass = (btn, login) => {
+	const password = btn.previousElementSibling.value;
+	const token = localStorage.getItem("token");
+
+	if (!password || password.length < 4) {
+		return;
+	}
+
+	fetch(`https://parser-fyw3.onrender.com/api/auth/update/${login}`, {
+		method: "put",
+		headers: {
+			Accept: "application/json",
+			"Content-Type": "application/json",
+			Authorization: "Bearer " + token,
+		},
+		body: JSON.stringify({
+			password
+		}),
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			btn.parentElement.parentElement.classList.remove("showPass");
+			btn.previousElementSibling.value = "";
+		});
+}
+
 const getUserLogs = (login) => {
 	const token = localStorage.getItem("token");
 
@@ -155,7 +184,7 @@ const getUserLogs = (login) => {
 		.then((data) => {
 			window.open(`https://parser-fyw3.onrender.com/logs/${data.filename}`);
 		});
-}
+};
 
 const getUsers = () => {
 	const token = localStorage.getItem("token");
@@ -181,7 +210,7 @@ const getUsers = () => {
 						<div class="users__list-item">
 							<span class="username">Користувачів не знайдено</span>
 						</div>	
-						`
+					`
 				);
 
 				return;
@@ -191,12 +220,19 @@ const getUsers = () => {
 				$usersList.insertAdjacentHTML(
 					"beforeend",
 					`
-							<div class="users__list-item">
+						<div class="users__list-item">
+							<div class="item__content">
 								<span class="username">${user.login}</span>
 								<button class="user-logs-btn" onclick="getUserLogs('${user.login}')">Логи</button>
-								<button class="remove-user-btn" onclick="removeUser('${user.login}')">Видалити</button>
-							</div>	
-							`
+								<button class="open-user-pass-btn" onclick="openUserPassword(this)"><img src="./icons/edit.svg" alt="edit" /></button>
+								<button class="remove-user-btn" onclick="removeUser('${user.login}')"><img src="./icons/remove.svg" alt="remove" /></button>
+							</div>
+							<div class="item__password">
+								<input type="password" name="new-password" class="new-password__input" placeholder="Новий пароль">
+								<button class="edit-user-btn" onclick="editUserPass(this, '${user.login}')">Змінити</button>
+							</div>
+						</div>	
+					`
 				);
 			});
 		});

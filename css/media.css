@@ -68,3 +68,21 @@
 		text-align: center;
 	}
 }
+
+@media (max-height: 600px) {
+	.auth__inner {
+		display: flex;
+		flex-direction: column;
+		padding-bottom: 0;
+	}
+
+	.auth-form {
+		margin: 0 auto;
+	}
+
+	.product-by {
+		position: static;
+		text-align: right;
+		margin: 40px 0;
+	}
+}

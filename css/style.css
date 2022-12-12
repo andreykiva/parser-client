@@ -405,6 +405,16 @@ a.header-link {
 	background-color: rgba(20, 187, 42, 0.836)
 }
 
+.product-by {
+	position: fixed;
+	right: 30px;
+	bottom: 30px;
+}
+
+.product-by span {
+	color: #544db9;
+}
+
 /*--------------------------------------------------------------------------------------USers Section */
 
 .users__inner {
@@ -420,19 +430,60 @@ a.header-link {
 
 .users__list-item {
 	width: 100%;
-	display: flex;
-	justify-content: flex-end;
-	align-items: center;
-	padding-left: 30px;
 	border: 1px solid #21262d;
 	border-radius: 15px;
 	margin-bottom: 20px;
 	overflow: hidden;
 }
 
+.users__list-item.showPass .item__password {
+	display: flex;
+}
+
+.edit-user-btn {
+	width: 162px;
+	height: 40px;
+	outline: none;
+	border: none;
+	border-left: 1px solid #21262d;
+	cursor: pointer;
+	background-color: rgb(28, 175, 77);
+	color: #fff;
+	font-size: 16px;
+	transition: background .2s ease-in-out;
+}
+
+.edit-user-btn:hover {
+	background-color: rgb(24, 153, 67);
+}
+
+.users__list-item .item__content {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-left: 30px;
+}
+
 .users__list-item .username {
 	margin: 15px 0;
 	margin-right: auto;
+}
+
+.item__password {
+	display: none;
+	position: relative;
+	width: 100%;
+	border-top: 1px solid #21262d;
+}
+
+.item__password .new-password__input {
+	width: 100%;
+	padding: 10px 30px;
+	border: none;
+	outline: none;
+	background: none;
+	font-size: 16px;
+	color: #fff;
 }
 
 .user-logs-btn {
@@ -450,9 +501,12 @@ a.header-link {
 	opacity: .7;
 }
 
-.remove-user-btn {
+.remove-user-btn, .open-user-pass-btn {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	height: 50px;
-	padding: 0 20px;
+	padding: 3px 20px 0;
 	outline: none;
 	border: none;
 	border-left: 1px solid #21262d;
@@ -465,6 +519,23 @@ a.header-link {
 
 .remove-user-btn:hover {
 	background-color: rgb(170, 32, 32);
+}
+
+.remove-user-btn img {
+	width: 25px;
+}
+
+.open-user-pass-btn {
+	padding-top: 0;
+	background-color: rgba(73, 42, 252, 0.788);
+}
+
+.open-user-pass-btn img {
+	width: 20px;
+}
+
+.open-user-pass-btn:hover {
+	background-color: rgba(60, 34, 211, 0.788);
 }
 
 /*--------------------------------------------------------------------------------------Dark Theme */
@@ -569,6 +640,22 @@ body.dark .remove-user-btn {
 
 body.dark .remove-user-btn:hover {
 	background-color: rgb(199, 43, 43);
+}
+
+body.dark .open-user-pass-btn {
+	background-color: rgba(60, 34, 211, 0.788);
+}
+
+body.dark .open-user-pass-btn:hover {
+	background-color: rgba(73, 42, 252, 0.788);
+}
+
+body.dark .edit-user-btn {
+	background-color: rgb(24, 153, 67);
+}
+
+body.dark .edit-user-btn:hover {
+	background-color: rgb(28, 175, 77);
 }
 
 .hide {
